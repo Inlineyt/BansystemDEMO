@@ -1,0 +1,3 @@
+name: Bans
+version: '${project.version}'
+main: net.craftunity.bans.Main
