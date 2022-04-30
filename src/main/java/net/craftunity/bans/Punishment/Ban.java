@@ -1,33 +1,41 @@
 package net.craftunity.bans.Punishment;
-import java.lang.reflect.Array;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.UUID;
 
+import net.craftunity.bans.Discord.Channel.PunishLogChannel;
+import net.craftunity.bans.Discord.Messages.Embeds;
 import net.craftunity.bans.Utils.MySQL;
 import net.craftunity.bans.Utils.Player;
-import net.md_5.bungee.api.connection.ProxiedPlayer;
-import net.md_5.bungee.api.event.TabCompleteEvent;
+
 
 public class Ban {
 
-    public static void addPunishment(String proxiedPlayer, String Reason) {
+    public static void addPunishment(String proxiedPlayer, String Reason ,String Punisher) {
         String player = Player.getPlayer(proxiedPlayer.toString()).getUniqueId().toString();
         String BanID = UUID.randomUUID().toString();
 
+
+
+        Embeds.BanEmbed(PunishLogChannel.getChannel(), Player.getPlayer(proxiedPlayer.toString()).getName() , BanID ,"http://cravatar.eu/avatar/"+Player.getPlayer(proxiedPlayer.toString()).getName() +"/512.png",Reason ,Punisher);
         try {
-            PreparedStatement ps = MySQL.getConnection().prepareStatement("INSERT INTO Ban (UUID, BanID ,Name , REASON) VALUES (?,?,?,?,?);");
+            PreparedStatement ps = MySQL.getConnection().prepareStatement("INSERT INTO Ban (UUID, BanID ,Name , REASON) VALUES (?,?,?,?);");
             ps.setString(1, player);
             ps.setString(2, BanID);
             ps.setString(3, Player.getPlayer(proxiedPlayer.toString()).getName());
             ps.setString(4, Reason);
-            ps.setString(5, "true");
             ps.executeUpdate();
         } catch (SQLException var5) {
             var5.printStackTrace();
         }
+
+
+
+
+
+
 
     }
 

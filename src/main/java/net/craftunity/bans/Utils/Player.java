@@ -7,6 +7,8 @@ public class Player {
 
     public static ProxiedPlayer getPlayer(String player) {
         ProxiedPlayer Player = ProxyServer.getInstance().getPlayer(player);
+
+
         return Player;
     }
 }

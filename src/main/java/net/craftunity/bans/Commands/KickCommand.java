@@ -1,6 +1,8 @@
 package net.craftunity.bans.Commands;
 
 import com.google.common.collect.ImmutableSet;
+import net.craftunity.bans.Discord.Channel.PunishLogChannel;
+import net.craftunity.bans.Discord.Messages.Embeds;
 import net.craftunity.bans.Log.Punishment;
 import net.craftunity.bans.Main;
 import net.craftunity.bans.Punishment.GeneralPunishment;
@@ -37,6 +39,10 @@ public class KickCommand extends Command implements TabExecutor {
                 for (ProxiedPlayer moderators : ProxyServer.getInstance().getPlayers()) {
                     if (moderators.hasPermission("Report.Review"));
                 }
+
+
+                Embeds.KickEmbed(PunishLogChannel.getChannel(),Player.getPlayer(punishedPlayer.toString()).getName()  ,"http://cravatar.eu/avatar/"+Player.getPlayer(punishedPlayer.toString()).getName()+"/512.png",args[1] ,sender.getName(), Player.getPlayer(punishedPlayer.toString()).getUniqueId().toString() );
+
             }
         } else {
             sender.sendMessage("Befehl nicht in der Konsole ausf");

@@ -3,11 +3,14 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.UUID;
+
+import net.craftunity.bans.Discord.Channel.PunishLogChannel;
+import net.craftunity.bans.Discord.Messages.Embeds;
 import net.craftunity.bans.Utils.MySQL;
 import net.craftunity.bans.Utils.Player;
 public class Mute {
 
-    public static void addPunishment(String proxiedPlayer, String Reason) {
+    public static void addPunishment(String proxiedPlayer, String Reason , String Punisher) {
         String player = Player.getPlayer(proxiedPlayer.toString()).getUniqueId().toString();
         String MuteID = UUID.randomUUID().toString();
 
@@ -21,6 +24,11 @@ public class Mute {
         } catch (SQLException var5) {
             var5.printStackTrace();
         }
+
+        Embeds.MuteEmbed(PunishLogChannel.getChannel(),Player.getPlayer(proxiedPlayer.toString()).getName() ,MuteID ,"http://cravatar.eu/avatar/"+proxiedPlayer+"/512.png",Reason ,Punisher);
+
+
+
 
     }
 

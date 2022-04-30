@@ -23,22 +23,22 @@ public class MySQL {
 
     public static void connect() {
         try {
-            con = DriverManager.getConnection("jdbc:mysql://45.85.219.106:3306/Bansystem?autoRecconnect=true", "craftunity", "zFtf5zFTS*ncJrXT");
+            con = DriverManager.getConnection("jdbc:mysql://<insert IP here>:3306/Bansystem?autoRecconnect=true", "<insert user here>", "<insert Password here>");
         } catch (SQLException var1) {
-            System.out.println("SQL Disconecctde");
-            System.out.println("SQL Error");
-            System.out.println("SQL Error");
-            System.out.println("SQL Error");
-            System.out.println("SQL Error");
-            System.out.println("SQL Error");
-            System.out.println("SQL Error");
-            System.out.println("SQL Error");
-            System.out.println("SQL Error");
-            System.out.println("SQL Error");
-            System.out.println("SQL Error");
-            System.out.println("SQL Error");
-            System.out.println("SQL Error");
-            System.out.println("SQL Error");
+            System.out.println("SQL Disconeccted");
+            System.out.println("SQL Error Connection unreachable");
+            System.out.println("SQL Error Connection unreachable");
+            System.out.println("SQL Error Connection unreachable");
+            System.out.println("SQL Error Connection unreachable");
+            System.out.println("SQL Error Connection unreachable");
+            System.out.println("SQL Error Connection unreachable");
+            System.out.println("SQL Error Connection unreachable");
+            System.out.println("SQL Error Connection unreachable");
+            System.out.println("SQL Error Connection unreachable");
+            System.out.println("SQL Error Connection unreachable");
+            System.out.println("SQL Error Connection unreachable");
+            System.out.println("SQL Error Connection unreachable");
+            System.out.println("SQL Error Connection unreachable");
         }
 
     }

@@ -43,7 +43,7 @@ public class BanCommand extends Command implements TabExecutor {
 
                 new Punishment().CreatePunishment(SenderPlayer, punishedPlayer.getName().toString(), "Ban", reason);
                 new GeneralPunishment().addToLog(punishedPlayer,"Ban",reason);
-                Ban.addPunishment(args[0], reason);
+                Ban.addPunishment(args[0], reason,sender.getName());
                 punishedPlayer.disconnect((new ComponentBuilder(ChatColor.STRIKETHROUGH + "                                                                 \n" + ChatColor.GRAY + " \n CraftUnity System\n" + ChatColor.AQUA + " \n Du Wurdest Gebannt \n\n" + ChatColor.GRAY + "Grund: " + ChatColor.RED + args[1] + ChatColor.RESET + ChatColor.STRIKETHROUGH + "\n\n                                                                 ")).create());
             }
         }

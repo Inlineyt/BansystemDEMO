@@ -32,7 +32,7 @@ public class MuteCommand extends Command implements TabExecutor {
         if (sender instanceof ProxiedPlayer) {
             ProxiedPlayer punishedPlayer = Player.getPlayer(args[0]);
             ProxiedPlayer SenderPlayer = (ProxiedPlayer)sender;
-            Mute.addPunishment(punishedPlayer.toString(), args[1]);
+            Mute.addPunishment(punishedPlayer.toString(), args[1], sender.getName());
             new GeneralPunishment().addToLog(punishedPlayer,"Mute",args[1]);
             punishedPlayer.sendMessage((new ComponentBuilder("" + ChatColor.AQUA + "Craftunity System" + ChatColor.AQUA + "|" + ChatColor.DARK_GRAY + "Du wurdest stummgeschaltet")).create());
             punishedPlayer.sendMessage((new ComponentBuilder("" + ChatColor.GRAY + "Grund: " + ChatColor.GRAY)).create());

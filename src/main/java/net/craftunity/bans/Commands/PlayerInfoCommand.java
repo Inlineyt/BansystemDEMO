@@ -39,40 +39,19 @@ public class PlayerInfoCommand extends Command implements TabExecutor {
             String serverName = server.getInfo().getName();
 
 
-
-
             SenderPlayer.sendMessage(new ComponentBuilder(ChatColor.AQUA + " Craftunity Spielerinfo " + ChatColor.DARK_GRAY + "| " + ChatColor.GRAY +"Spieler : " + ChatColor.RED + requestedPlayer.getName()).create());
-
-
-     //    TextComponent GoTo = new TextComponent(ChatColor.AQUA + " (Jump)");
-     //    GoTo.setClickEvent(new ClickEvent(ClickEvent.Action.RUN_COMMAND, "Goto " +requestedPlayer.getName()));
-
-
-
-
-
-     //    TextComponent UUID = new TextComponent(ChatColor.AQUA +  " (Kopieren)");
-     //    GoTo.setClickEvent(new ClickEvent(ClickEvent.Action.COPY_TO_CLIPBOARD, requestedPlayer.getUniqueId().toString()));
-
-
-
-
-
-
-
-
 
 
             SenderPlayer.sendMessage(new ComponentBuilder( " ").create());
             if (requestedPlayer.isConnected()){
-                SenderPlayer.sendMessage(new ComponentBuilder(ChatColor.GRAY + " Aktuell auf dem Server: " +serverName).create());
 
+                SenderPlayer.sendMessage(new ComponentBuilder(new Chat().OnlineOnComponent(requestedPlayer)).create());
             } else {
                 SenderPlayer.sendMessage(new ComponentBuilder(ChatColor.GRAY + " Aktuell Offline ").create());
 
             }
             SenderPlayer.sendMessage(new ComponentBuilder( " ").create());
-            SenderPlayer.sendMessage(new ComponentBuilder(ChatColor.GRAY + " UUID: "+ requestedPlayer.getUniqueId()).create());
+            SenderPlayer.sendMessage(new ComponentBuilder(new Chat().PlayerUUIDComponent(requestedPlayer)).create());
 
 
             SenderPlayer.sendMessage(new ComponentBuilder( ChatColor.STRIKETHROUGH +  "                           "+ChatColor.RESET + ChatColor.GRAY + "| Mute Status |" +  ChatColor.RESET +ChatColor.STRIKETHROUGH +  "                     ").create());
